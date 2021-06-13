@@ -4,7 +4,7 @@
 def q1
   names = ["田中", "佐藤", "佐々木", "高橋"]
   # 以下に回答を記載
-  p names << "斎藤"
+  puts  names << "斎藤"
 end
 
 def q2
@@ -12,13 +12,13 @@ def q2
   array2 = ["bird", "bat", "tiger"]
 
   # 以下に回答を記載
-  p array1 + array2
+  puts  array1 + array2
 end
 
 def q3
   numbers = [1, 5, 8, 10, 2, 3, 2, 3, 3, 1, 4, 5, 9]
   # 以下に回答を記載
-  p numbers.count(3)
+  puts  numbers.count(3)
 end
 
 def q4
@@ -26,22 +26,22 @@ def q4
   # 以下に回答を記載
   sports.compact!
   # 以下は変更しないで下さい
-  p sports
+  puts  sports
 end
 
 def q5
   array1 = []
   array2 = [1, 5, 8, 10]
   # 以下に回答を記載
-  p array1.empty?
-  p array2.empty?
+  puts array1.empty?
+  puts array2.empty?
 end
 
 def q6
   numbers1 = [1, 2, 3, 4, 5]
   # 以下に回答を記載
-  numbers1.each do |n|
-  p n * 10
+  numbers1.each do |num|
+    puts  num * 10
   end
 end
 
@@ -50,34 +50,36 @@ def q7
   # 以下に回答を記載
   array.map!(&:to_i) 
   # 以下は変更しないで下さい
-  p array
+  puts array
 end
 
 def q8
-  programming_languages = %w(ruby php python javascript)
+  programming_languages = %w(ruby phputs python javascript)
   # 以下に回答を記載
+  programming_languages = programming_languages.map(&:capitalize)
   upper_case_programming_languages = programming_languages.map(&:upcase)
   # 以下は変更しないで下さい
-  p programming_languages
-  p upper_case_programming_languages
+  puts programming_languages
+  puts "---------------------"
+  puts upper_case_programming_languages
 end
 
 def q9
   names = ["田中", "佐藤", "佐々木", "高橋"]
   # 以下に回答を記載
-  names.each_with_index do |k, v|
-    p "会社員No.#{v} #{k}"
+  names.each_with_index do |key, value|
+    puts "会社員No.#{value + 1} #{key}"
   end
 end
 
 def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
   # 以下に回答を記載
-  foods.each do |keyword|
-    if keyword.include?("うに")
-      p "大好物です"
+  foods.each do |searchKeyword|
+    if searchKeyword.include?("うに")
+      puts "大好物です"
     else
-      p "まぁまぁ好きです"
+      puts "まぁまぁ好きです"
     end
   end
 end
@@ -85,38 +87,44 @@ end
 def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
   # 以下に回答を記載
-  sp = sports.flatten
-  sp.each_with_index do |k, v|
-    p "No#{v} #{k}"
+  sports.flatten!
+  sports.uniq!
+  sports.each_with_index do |key, value|
+    puts "No#{value + 1} #{key}"
   end
 end
 
 def q12
   data = { user: { name: "satou", age: 33 } }
   # 以下に回答を記載
-  p data[:user][:name]
+  puts data[:user][:name]
 end
 
 def q13
   user_data = { name: "神里", age: 31, address: "埼玉" }
   update_data = { age: 32, address: "沖縄" }
   # 以下に回答を記載
-  p user_data.merge(update_data)
+  p user_data.merge!(update_data)
+  p user_data
 end
 
 def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
-
   # 以下に回答を記載
-
+  puts data.keys
 end
 
 def q15
   data1 = { name: "saitou", hobby: "soccer", age: 33, role: "admin" }
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
-
   # 以下に回答を記載
+  data = data1.merge(data2)
 
+  if data.has_key?(:name)
+    puts "OK"
+  elsif
+    puts "NG"
+  end
 end
 
 def q16
@@ -142,7 +150,7 @@ def q17
   user2 = UserQ17.new(name: "あじー", age: 32, gender: "男")
 
   user1.info
-  puts "-------------"
+  puts  "-------------"
   user2.info
 end
 
@@ -156,8 +164,8 @@ def q18
   user1 = UserQ18.new(name: "あじー", age: 32)
   user2 = UserQ18.new(name: "ゆたぼん", age: 10)
 
-  puts user1.introduce
-  puts user2.introduce
+  puts  user1.introduce
+  puts  user2.introduce
 end
 
 class Item
@@ -171,7 +179,7 @@ end
 def q19
   # ここは変更しないで下さい
   book = Item.new(name: "ゼロ秒思考")
-  puts book.name
+  puts  book.name
 end
 
 class UserQ20
