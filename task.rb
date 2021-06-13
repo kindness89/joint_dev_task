@@ -118,13 +118,8 @@ def q15
   data1 = { name: "saitou", hobby: "soccer", age: 33, role: "admin" }
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
   # 以下に回答を記載
-  data = data1.merge(data2)
-
-  if data.has_key?(:name)
-    puts "OK"
-  elsif
-    puts "NG"
-  end
+  puts data1.has_key?(:age) ?  "OK" : "NG"
+  puts data2.has_key?(:age) ?  "OK" : "NG"
 end
 
 def q16
@@ -134,9 +129,10 @@ def q16
     { name: "takahashi", age: 32 },
     { name: "nakamura", age: 41 }
   ]
-
   # 以下に回答を記載
-
+  users.each do |user|
+    puts "私の名前は#{user[:name]}です。年齢は#{user[:age]}です。"
+  end
 end
 
 class UserQ17
