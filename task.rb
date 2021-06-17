@@ -67,7 +67,7 @@ end
 def q9
   names = ["田中", "佐藤", "佐々木", "高橋"]
   # 以下に回答を記載
-  names.each_with_index do |name, i|
+  names.each.with_index do |name, i|
     puts "会社員No.#{i+1} #{name}"
   end
 end
@@ -89,7 +89,7 @@ def q11
   # 以下に回答を記載
   sports.flatten!
   sports.uniq!
-  sports.each_with_index do |sport, i|
+  sports.each.with_index do |sport, i|
     puts "No#{i + 1} #{sport}"
   end
 end
