@@ -170,10 +170,10 @@ class UserQ18
   end
 
   def introduce
-    if (@age >= 20)
-      puts "こんにちは,#{@name}と申します。宜しくお願いいたします。"
-    elsif (@age <= 20)
-      puts "はいさいまいど〜，#{@name}です！！！"
+    if @age >= 20
+      print "こんにちは,#{@name}と申します。宜しくお願いいたします。"
+    elsif @age <= 20
+      print "はいさいまいど〜、#{@name}です！！！"
     end
   end
 end
@@ -183,15 +183,15 @@ def q18
   user1 = UserQ18.new(name: "あじー", age: 32)
   user2 = UserQ18.new(name: "ゆたぼん", age: 10)
 
-  puts  user1.introduce
-  puts  user2.introduce
+  puts user1.introduce
+  puts user2.introduce
 end
 
 class Item
   # 以下を修正して下さい
   attr_reader :name
-  def initialize(**params)
-    @name = params[:name]
+  def initialize(name:)
+    @name = name
   end
 end
 
@@ -218,7 +218,7 @@ class Zoo
   end
 
   def info_entry_fee(user)
-    admissionFee = case user.age
+    admission_fee = case user.age
     when 0..5
       @entry_fee[:infant]
     when 6..12
@@ -229,7 +229,7 @@ class Zoo
       @entry_fee[:senior]
     end
 
-    puts "#{user.name}さんの入場料金は　#{admissionFee}円です"
+    puts "#{user.name}さんの入場料金は　#{admission_fee}円です"
   end
 end
 
